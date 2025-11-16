@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshan's Watch Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        #header {
+            background-color: #0d0d0d;
+            padding: 0px 50px;
+            height: 100px;
+            justify-content: space-between;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        #logo {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin-right: auto;
+        }
+
+        #logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 40px;
+
+        }
+
+        #nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #nav a:hover {
+            color: #ff9900;
+        }
+
+        #contact-btn {
+            background-color: #ff9900;
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 3px;
+        }
+
+        #cart {
+            color: #fff;
+            background-color: #ff9900;
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 3px;
+        }
+
+        #hero {
+            height: 500px;
+            padding: 0px;
+            background-image: url('https://images.unsplash.com/photo-1526743655626-e3d757b13d61?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        #hero-content {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 450px;
+        }
+
+        #hero h2 {
+            font-size: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-family: serif;
+        }
+
+        #hero p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 400px;
+        }
+
+        #hero-btn {
+            background-color: #ff9900;
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        #products {
+            background-color: #f7f7f7;
+            padding: 40px 0;
+            margin: 50px auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            color: #333;
+        }
+
+        #title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5px;
+            padding: 0 50px;
+        }
+
+        #desc {
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 50px;
+        }
+
+        #grid {
+            padding: 0 40px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            width: 18%;
+            margin: 10px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid white;
+            text-align: center;
+            padding: 0;
+            height: 350px;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 25px #ff990033;
+            border-color: goldenrod;
+
+        }
+
+        #info {
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #brand {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px 0 0 0;
+            color: #000;
+        }
+
+        #model {
+            font-size: 14px;
+            color: #555;
+            margin: 0;
+        }
+
+        #footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            gap: 5px;
+        }
+
+        #price {
+            font-size: 25px;
+            font-weight: bold;
+            color: #000;
+            padding-left: 10px;
+
+        }
+
+        #btn {
+            background-color: #ff9900;
+            color: #000;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #btn:hover {
+            background-color: #ffb333;
+            padding: 7px 10px;
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.4);
+        }
+
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-top: 50px;
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 10px 25px;
+            color: black;
+            background-color: blanchedalmond;
+            border-radius: 100px;
+            font-family: Georgia, serif;
+            font-size: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        img {
+            height: 165px;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <div id="logo"><img src="logoo.jpg">&nbsp;<span>Darshan's Watch Collection</span></div>
+        <div id="nav">
+            <a href="contact.html" id="contact-btn">CONTACT US</a>
+            <a href="login.html" id="contact-btn">LOGIN</a>
+            <a href="about.html" id="contact-btn">ABOUT US</a>
+            <div id="cart"><a href="bilingnew.html">BILING🛒</a></div>
+        </div>
+    </div>
+
+    <div id="hero">
+        <div id="hero-content">
+            <h2>DISCOVER TIMELESS ELEGANCE</h2>
+            <p>Explore our exquisite collection from a carefully selected range of fine watches perfect today.</p>
+            <a href="" id="hero-btn">SHOP NOW</a>
+        </div>
+    </div>
+    <center>
+        <div id="products">
+            <h2 id="title">Our Top Picks: Leading Brands</h2>
+            <p id="desc">Experience our exquisite collection from a carefully selected style from find the perfect is
+                today.</p>
+
+            <h1>Rolex</h1>
+            <br>
+            <div id="grid">
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Rolex</p>
+                        <p id="model">Submariner Date</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="1.jpg"></a>
+                            <span id="price">₹ 1,614,000.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Rolex</p>
+                        <p id="model">Datejust</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="2.jpg"></a>
+                            <span id="price">₹874,500.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Rolex</p>
+                        <p id="model">GMT-Master II</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="3.jpg"></a>
+                            <span id="price">₹ 1,021,000.00
+                            </span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Rolex</p>
+                        <p id="model">Yacht-Master 40</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="4.jpg"></a>
+                            <span id="price">₹ 4,685,000.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Rolex</p>
+                        <p id="model">Land-Dweller 40</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="5.jpg"></a>
+                            <span id="price">₹10,838,000.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <h1>Omega</h1>
+            <br>
+
+            <div id="grid">
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Omega</p>
+                        <p id="model">Speedmaster
+                            Moonwatch</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="6.jpg"></a>
+                            <span id="price">₹7,48,600.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Omega</p>
+                        <p id="model">Seamaster
+                            Diver</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="7.jpg"></a>
+                            <span id="price">₹8,95,900.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Omega</p>
+                        <p id="model">De Ville
+                            Prestige</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="8.jpg"></a>
+                            <span id="price">₹7,97,700.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Omega</p>
+                        <p id="model">Planet Ocean</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="9.jpg"></a>
+                            <span id="price">₹7,60,900.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Omega</p>
+                        <p id="model">Constellation</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="10.jpg"></a>
+                            <span id="price">₹6,87,300.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <h1>Titan</h1>
+            <br>
+            <div id="grid">
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Titan</p>
+                        <p id="model">Titan Edge</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="11.jpg"></a>
+                            <span id="price">₹35,495.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Titan</p>
+                        <p id="model">Quartz</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="12.jpg"></a>
+                            <span id="price">₹13,295.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Titan</p>
+                        <p id="model">Murals Quartz</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="13.jpg"></a>
+                            <span id="price">₹20,995.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Titan</p>
+                        <p id="model">Submariner</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="14.jpg"></a>
+                            <span id="price">₹16,795.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Titan</p>
+                        <p id="model">Titan Edge Murals</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="15.jpg"></a>
+                            <span id="price">₹14,995.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <h1>Casio</h1>
+            <br>
+            <div id="grid">
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Casio</p>
+                        <p id="model">MTG-B2000YBD-2A</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="16.jpg"></a>
+                            <span id="price">₹1,09,995.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Casio</p>
+                        <p id="model">MTG-B3000D-1A9</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="17.jpg"></a>
+                            <span id="price">₹88,995.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Casio</p>
+                        <p id="model">GMW-B5000PG-9</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="18.jpg"></a>
+                            <span id="price">₹74,995.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Casio</p>
+                        <p id="model">GPR-H1000-9</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="19.jpg"></a>
+                            <span id="price">₹59,995.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Casio</p>
+                        <p id="model">GM-B2100LL-1A</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="20.jpg"></a>
+                            <span id="price">₹73,995.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h1>Patek Philippe
+            </h1><br>
+            <div id="grid">
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Patek Philippe</p>
+                        <p id="model">5260/1455R-001</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="21.jpg"></a>
+                            <span id="price">₹34,410,071.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Patek Philippe</p>
+                        <p id="model">5811/1460G-001
+                        </p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="22.jpg"></a>
+                            <span id="price">₹59,286,450.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Patek Philippe</p>
+                        <p id="model">5088/100P-001</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="23.jpg"></a>
+                            <span id="price">₹6,700,222.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Patek Philippe</p>
+                        <p id="model">5821/1A-001</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="24.jpg"></a>
+                            <span id="price">₹9,686,983.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div id="img1"></div>
+                    <div id="info">
+                        <p id="brand">Patek Philippe</p>
+                        <p id="model">7118/1451G-001</p>
+                        <div id="footer">
+                            <a href="bilingnew.html"><img src="25.jpg"></a>
+                            <span id="price">₹50,287,614.00</span>
+                            <a href="bilingnew.html" id="btn">Add Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+        </div>
+
+        THANKS FOR VISITING OUR WEBSITE
+        </div>
+        </div>
+    </center>
+
+    <footer id="page-footer">
+        &copy; 2025 Darshan's Watch Collection. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
